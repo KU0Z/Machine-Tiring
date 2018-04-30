@@ -12,25 +12,27 @@ namespace Proyecto_MT
 {
     public partial class Form1 : Form
     {
+        private int pasos = 0;
         public Form1()
-        {
+        { 
             InitializeComponent();
             InitializeGrid();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DgvCinta.ColumnCount++;
-            DgvCinta.Columns[DgvCinta.ColumnCount-1].Width = 50;
-            DgvCinta.CurrentCell = DgvCinta[15, 0];
-            //DgvCinta.CurrentCell.Style.SelectionBackColor = Color.Green;
-            DgvCinta.Rows[0].Cells[15].Value = "1";
-            DgvCinta.Font = new Font("Tahoma", 15);
-
+            //DgvCinta.ColumnCount++;
+            //DgvCinta.Columns[DgvCinta.ColumnCount-1].Width = 50;
+            //DgvCinta.CurrentCell = DgvCinta[15, 0];
+            ////DgvCinta.CurrentCell.Style.SelectionBackColor = Color.Green;
+            //DgvCinta.Rows[0].Cells[15].Value = "1";
+            //DgvCinta.Font = new Font("Tahoma", 15);
+            timer1.Enabled = true;
 
         }
         private void InitializeGrid()
         {
+            DgvCinta.ColumnCount = 0;
             DgvCinta.RowCount = 1;
             DgvCinta.ColumnCount = 20;
 
@@ -48,6 +50,7 @@ namespace Proyecto_MT
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
+            InitializeGrid();
             int tamañoCinta = DgvCinta.ColumnCount;
             string entrada = tbEntrada.Text;
             if(tamañoCinta<= entrada.Length)
@@ -63,6 +66,24 @@ namespace Proyecto_MT
                 DgvCinta.Rows[0].Cells[i].Value = entrada.Substring(i,1);
             }
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            pasos++;
+            DgvCinta.CurrentCell = DgvCinta[pasos, 0];
+            DgvCinta.CurrentCell.Style.SelectionBackColor = Color.Green;
+
+        }
+
+        private void btnDetener_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+        }
+
+        private void tbVelocidad_Scroll(object sender, EventArgs e)
+        {
+            timer1.Interval = tbVelocidad.Value;
         }
     }
 }

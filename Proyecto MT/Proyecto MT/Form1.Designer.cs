@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.DgvCinta = new System.Windows.Forms.DataGridView();
-            this.next = new System.Windows.Forms.Button();
+            this.btnIniciar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbEntrada = new System.Windows.Forms.TextBox();
             this.btnCargar = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnDetener = new System.Windows.Forms.Button();
+            this.tbVelocidad = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCinta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbVelocidad)).BeginInit();
             this.SuspendLayout();
             // 
             // DgvCinta
@@ -48,15 +53,15 @@
             this.DgvCinta.Size = new System.Drawing.Size(933, 70);
             this.DgvCinta.TabIndex = 0;
             // 
-            // next
+            // btnIniciar
             // 
-            this.next.Location = new System.Drawing.Point(43, 180);
-            this.next.Name = "next";
-            this.next.Size = new System.Drawing.Size(64, 25);
-            this.next.TabIndex = 1;
-            this.next.Text = "button1";
-            this.next.UseVisualStyleBackColor = true;
-            this.next.Click += new System.EventHandler(this.button1_Click);
+            this.btnIniciar.Location = new System.Drawing.Point(43, 180);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(64, 25);
+            this.btnIniciar.TabIndex = 1;
+            this.btnIniciar.Text = "button1";
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -93,20 +98,50 @@
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnDetener
+            // 
+            this.btnDetener.Location = new System.Drawing.Point(113, 180);
+            this.btnDetener.Name = "btnDetener";
+            this.btnDetener.Size = new System.Drawing.Size(75, 23);
+            this.btnDetener.TabIndex = 6;
+            this.btnDetener.Text = "button1";
+            this.btnDetener.UseVisualStyleBackColor = true;
+            this.btnDetener.Click += new System.EventHandler(this.btnDetener_Click);
+            // 
+            // tbVelocidad
+            // 
+            this.tbVelocidad.LargeChange = 100;
+            this.tbVelocidad.Location = new System.Drawing.Point(43, 211);
+            this.tbVelocidad.Maximum = 1000;
+            this.tbVelocidad.Minimum = 100;
+            this.tbVelocidad.Name = "tbVelocidad";
+            this.tbVelocidad.Size = new System.Drawing.Size(194, 45);
+            this.tbVelocidad.TabIndex = 7;
+            this.tbVelocidad.Value = 100;
+            this.tbVelocidad.Scroll += new System.EventHandler(this.tbVelocidad_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 371);
+            this.Controls.Add(this.tbVelocidad);
+            this.Controls.Add(this.btnDetener);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.tbEntrada);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.next);
+            this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.DgvCinta);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.DgvCinta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbVelocidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,11 +150,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DgvCinta;
-        private System.Windows.Forms.Button next;
+        private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbEntrada;
         private System.Windows.Forms.Button btnCargar;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnDetener;
+        private System.Windows.Forms.TrackBar tbVelocidad;
     }
 }
 

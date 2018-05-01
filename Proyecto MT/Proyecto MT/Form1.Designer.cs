@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvCinta = new System.Windows.Forms.DataGridView();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -38,8 +39,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnDetener = new System.Windows.Forms.Button();
             this.tbVelocidad = new System.Windows.Forms.TrackBar();
+            this.dgvTranciciones = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCinta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbVelocidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTranciciones)).BeginInit();
             this.SuspendLayout();
             // 
             // DgvCinta
@@ -66,10 +69,17 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1.Palíndromos",
+            "2.Copia de patrones",
+            "3.Multiplicación en código unario",
+            "4.Suma en código unario",
+            "5.Resta en código unario"});
             this.comboBox1.Location = new System.Drawing.Point(43, 127);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(222, 21);
             this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -105,7 +115,7 @@
             // 
             // btnDetener
             // 
-            this.btnDetener.Location = new System.Drawing.Point(113, 180);
+            this.btnDetener.Location = new System.Drawing.Point(200, 180);
             this.btnDetener.Name = "btnDetener";
             this.btnDetener.Size = new System.Drawing.Size(75, 23);
             this.btnDetener.TabIndex = 6;
@@ -122,14 +132,32 @@
             this.tbVelocidad.Name = "tbVelocidad";
             this.tbVelocidad.Size = new System.Drawing.Size(194, 45);
             this.tbVelocidad.TabIndex = 7;
-            this.tbVelocidad.Value = 100;
+            this.tbVelocidad.Value = 500;
             this.tbVelocidad.Scroll += new System.EventHandler(this.tbVelocidad_Scroll);
+            // 
+            // dgvTranciciones
+            // 
+            this.dgvTranciciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTranciciones.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTranciciones.Location = new System.Drawing.Point(466, 138);
+            this.dgvTranciciones.Name = "dgvTranciciones";
+            this.dgvTranciciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvTranciciones.Size = new System.Drawing.Size(510, 157);
+            this.dgvTranciciones.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 371);
+            this.Controls.Add(this.dgvTranciciones);
             this.Controls.Add(this.tbVelocidad);
             this.Controls.Add(this.btnDetener);
             this.Controls.Add(this.btnCargar);
@@ -142,6 +170,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.DgvCinta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbVelocidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTranciciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +187,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnDetener;
         private System.Windows.Forms.TrackBar tbVelocidad;
+        private System.Windows.Forms.DataGridView dgvTranciciones;
     }
 }
 

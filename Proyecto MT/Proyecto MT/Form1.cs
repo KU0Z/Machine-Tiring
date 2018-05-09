@@ -32,6 +32,7 @@ namespace Proyecto_MT
             DgvCinta.RowCount = 1;
             DgvCinta.ColumnCount = 20;
 
+
             for (int i = 0; i < 20; i++)
             {
                 
@@ -245,18 +246,18 @@ namespace Proyecto_MT
             }
             else if (numeromaquina == 2)
             {
-                maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,+,R","", "", "q1,=,L" },
-                                                    { "q1,|,L", "q1,+,L","q1,=,L", "", "q2,,R" },
-                                                    { "q2,|,R", "q3,+,R","", "", "" },
+                maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,*,R","", "", "q1,=,L" },
+                                                    { "q1,|,L", "q1,*,L","q1,=,L", "", "q2,,R" },
+                                                    { "q2,|,R", "q3,*,R","", "", "" },
                                                     { "q4,x,L", "","q9,=,L","q3,x,R","" },
-                                                    { "q4,x,L", "q4,+,L","", "q4,x,L","q5,,R" },
-                                                    { "", "q1,+,L","", "q6,|,R","" },
-                                                    { "q6,|,R", "q6,+,R","q6,=,R", "q6,x,R","q7,|,L" },
-                                                    { "q7,|,L", "q8,+,L","q7,=,L","q7,x,L","q2,+,R" },
-                                                    { "q5,|,R", "q8,+,L","q8,=,L", "q8,x,L","q9,,R" },
-                                                    { "q9,|,L", "q10,+,R","", "q9,|,L","" },
+                                                    { "q4,x,L", "q4,*,L","", "q4,x,L","q5,,R" },
+                                                    { "", "q1,*,L","", "q6,|,R","" },
+                                                    { "q6,|,R", "q6,*,R","q6,=,R", "q6,x,R","q7,|,L" },
+                                                    { "q7,|,L", "q8,*,L","q7,=,L","q7,x,L","q2,*,R" },
+                                                    { "q5,|,R", "q8,*,L","q8,=,L", "q8,x,L","q9,,R" },
+                                                    { "q9,|,L", "q10,*,R","", "q9,|,L","" },
                                                     { "", "","", "",""}},
-                                                     new string[] { "|", "+" }, new string[] { "|,0", "+,1", "=,2", "x,3", ",4" }, "q0", new string[] { "q10" });
+                                                     new string[] { "|", "*" }, new string[] { "|,0", "*,1", "=,2", "x,3", ",4" }, "q0", new string[] { "q10" });
 
                 InitializeGridtraciones();
             }
@@ -276,19 +277,19 @@ namespace Proyecto_MT
             }
             else if (numeromaquina == 4)
             {
-                maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,+,R","", "", "q1,=,L" },
-                                                    { "q1,|,L", "q1,+,L","q1,=,L", "", "q2,,R" },
-                                                    { "q3,x,R", "q5,+,R","q2,=,R", "q2,x,R", "q8,,L" },
-                                                    { "q3,|,R", "q3,+,R","q3,=,R","q3,x,R","q4,x,L" },
-                                                    { "q4,|,L", "q4,+,L","q4,=,L", "q4,x,L","q2,,R" },
-                                                    { "q6,x,R", "q6,+,R","q8,=,L", "q5,x,R","q6,,L" },
-                                                    { "q6,|,R", "q6,+,R","q6,=,R", "q6,x,R","q7,,L" },
-                                                    { "q11,|,R", "q11,+,R","q7,=,R","q4,,L","q7,+,L" },
-                                                    { "q8,|,L", "q8,+,L","q8,=,L", "q8,x,L","q9,,R" },
-                                                    { "q9,|,R", "q9,+,R","q9,=,R", "q9,|,R","q10,,R" },
+                maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,-,R","", "", "q1,=,L" },
+                                                    { "q1,|,L", "q1,-,L","q1,=,L", "", "q2,,R" },
+                                                    { "q3,x,R", "q5,-,R","q2,=,R", "q2,x,R", "q8,,L" },
+                                                    { "q3,|,R", "q3,-,R","q3,=,R","q3,x,R","q4,x,L" },
+                                                    { "q4,|,L", "q4,-,L","q4,=,L", "q4,x,L","q2,,R" },
+                                                    { "q6,x,R", "q6,-,R","q8,=,L", "q5,x,R","q6,,L" },
+                                                    { "q6,|,R", "q6,-,R","q6,=,R", "q6,x,R","q7,,L" },
+                                                    { "q11,|,R", "q11,-,R","q7,=,R","q4,,L","q7,-,L" },
+                                                    { "q8,|,L", "q8,-,L","q8,=,L", "q8,x,L","q9,,R" },
+                                                    { "q9,|,R", "q9,-,R","q9,=,R", "q9,|,R","q10,,R" },
                                                     { "", "","", "",""},
                                                     { "", "","", "","q4,|,L"}},
-                                                     new string[] { "|", "+" }, new string[] { "|,0", "+,1", "=,2", "x,3", ",4" }, "q0", new string[] { "q10" });
+                                                     new string[] { "|", "-" }, new string[] { "|,0", "-,1", "=,2", "x,3", ",4" }, "q0", new string[] { "q10" });
 
                 InitializeGridtraciones();
             }

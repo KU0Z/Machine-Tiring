@@ -23,11 +23,6 @@ namespace Proyecto_MT
         {
             
             //DgvCinta.ColumnCount++;
-            //DgvCinta.Columns[DgvCinta.ColumnCount-1].Width = 50;
-            //DgvCinta.CurrentCell = DgvCinta[15, 0];
-            ////DgvCinta.CurrentCell.Style.SelectionBackColor = Color.Green;
-            //DgvCinta.Rows[0].Cells[15].Value = "1";
-            //DgvCinta.Font = new Font("Tahoma", 15);
             timer1.Enabled = true;
 
         }
@@ -108,7 +103,16 @@ namespace Proyecto_MT
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+
+            int tamañoCinta = DgvCinta.ColumnCount;
+            int ncabeza = DgvCinta.CurrentCell.ColumnIndex;
+            if (tamañoCinta-2 == ncabeza)
+            {
+                DgvCinta.ColumnCount++;
+                DgvCinta.Columns[DgvCinta.ColumnCount - 1].Width = 50;
+                DgvCinta.Rows[0].Cells[DgvCinta.ColumnCount - 1].Value = "";
+            }
+
             leerCinta(DgvCinta.CurrentCell.Value.ToString());
 
         }
@@ -243,23 +247,34 @@ namespace Proyecto_MT
             {
                 maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,+,R","", "", "q1,=,L" },
                                                     { "q1,|,L", "q1,+,L","q1,=,L", "", "q2,,R" },
+                                                    { "q2,|,R", "q3,+,R","", "", "" },
+                                                    { "q4,x,L", "","q9,=,L","q3,x,R","" },
+                                                    { "q4,x,L", "q4,+,L","", "q4,x,L","q5,,R" },
+                                                    { "", "q1,+,L","", "q6,|,R","" },
+                                                    { "q6,|,R", "q6,+,R","q6,=,R", "q6,x,R","q7,|,L" },
+                                                    { "q7,|,L", "q8,+,L","q7,=,L","q7,x,L","q2,+,R" },
+                                                    { "q5,|,R", "q8,+,L","q8,=,L", "q8,x,L","q9,,R" },
+                                                    { "q9,|,L", "q10,+,R","", "q9,|,L","" },
+                                                    { "", "","", "",""}},
+                                                     new string[] { "|", "+" }, new string[] { "|,0", "+,1", "=,2", "x,3", ",4" }, "q0", new string[] { "q10" });
+
+                InitializeGridtraciones();
+            }
+            else if (numeromaquina == 3)
+            {
+                maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,+,R","", "", "q1,=,L" },
+                                                    { "q1,|,L", "q1,+,L","q1,=,L", "", "q2,,R" },
                                                     { "q3,x,R", "q2,+,R","q2,=,R", "q2,x,L", "q4,x,L" },
                                                     { "q3,|,R", "q3,+,R","q3,=,R","q3,x,R","q4,x,L" },
                                                     { "q5,|,L", "q4,+,L","q4,=,L", "q4,x,L","q6,,R" },
                                                     { "q5,|,L", "q5,+,L","", "q2,x,R","q6,,L" },
                                                     { "", "q6,+,R","q6,=,R", "q6,|,R","q7,,R" },
-
-                                                    //{ "q2,a,R", "q2,b,R","q2,c,R", "q2,x,R", "q2,y,R","q2,z,R","q4,y,L" },
-                                                    //{ "q3,a,R", "q3,b,R","q3,c,R", "q3,x,R", "q3,y,R","q3,z,R","q4,z,L"},
-                                                    //{"q5,a,L", "q5,b,L","q5,c,L", "q4,x,L", "q4,y,L","q4,z,L","q6,,R"},
-                                                    //{ "q5,a,L", "q5,b,L","q5,c,L","q0,x,R", "q0,y,R","q0,z,R", "q6,,R"},
-                                                    //{ "", "","","q6,a,R", "q6,b,R","q6,c,R", "q7,,L"},
                                                     { "", "","", "",""}},
                                                      new string[] { "|", "+" }, new string[] { "|,0", "+,1", "=,2", "x,3",",4" }, "q0", new string[] { "q7" });
 
                 InitializeGridtraciones();
             }
-            else if (numeromaquina == 3)
+            else if (numeromaquina == 4)
             {
                 maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,+,R","", "", "q1,=,L" },
                                                     { "q1,|,L", "q1,+,L","q1,=,L", "", "q2,,R" },
@@ -272,11 +287,6 @@ namespace Proyecto_MT
                                                     { "q8,|,L", "q8,+,L","q8,=,L", "q8,x,L","q9,,R" },
                                                     { "q9,|,R", "q9,+,R","q9,=,R", "q9,|,R","q10,,R" },
                                                     { "", "","", "",""},
-                                                    //{ "q2,a,R", "q2,b,R","q2,c,R", "q2,x,R", "q2,y,R","q2,z,R","q4,y,L" },
-                                                    //{ "q3,a,R", "q3,b,R","q3,c,R", "q3,x,R", "q3,y,R","q3,z,R","q4,z,L"},
-                                                    //{"q5,a,L", "q5,b,L","q5,c,L", "q4,x,L", "q4,y,L","q4,z,L","q6,,R"},
-                                                    //{ "q5,a,L", "q5,b,L","q5,c,L","q0,x,R", "q0,y,R","q0,z,R", "q6,,R"},
-                                                    //{ "", "","","q6,a,R", "q6,b,R","q6,c,R", "q7,,L"},
                                                     { "", "","", "","q4,|,L"}},
                                                      new string[] { "|", "+" }, new string[] { "|,0", "+,1", "=,2", "x,3", ",4" }, "q0", new string[] { "q10" });
 

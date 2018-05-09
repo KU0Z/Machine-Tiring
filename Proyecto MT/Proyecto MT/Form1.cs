@@ -223,6 +223,7 @@ namespace Proyecto_MT
                                                     { "", "q0,,R","", "q4,,R" },
                                                     { "", "","q0,,R", "q4,,R"}},
                                                    new string[] { "a", "b", "c" }, new string[] { "a,0", "b,1", "c,2", ",3" }, "q0", new string[] { "q4" });
+                InitializeGridtraciones();
             }
             else if (numeromaquina == 1)
             {
@@ -236,27 +237,50 @@ namespace Proyecto_MT
                                                     { "", "","", "","", "",""}},
                                                   new string[] { "a", "b", "c" }, new string[] { "a,0", "b,1", "c,2", "x,3", "y,4", "z,5", ",6" }, "q0", new string[] { "q7" });
 
-                //InitializeGridtraciones();
+                InitializeGridtraciones();
             }
             else if (numeromaquina == 2)
             {
                 maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,+,R","", "", "q1,=,L" },
                                                     { "q1,|,L", "q1,+,L","q1,=,L", "", "q2,,R" },
-                                                    { "q3,x,R", "q3,+,R","q3,=,R", "", "" },
-                                                    { "q1,a,R", "q1,b,R","q1,c,R", "q1,x,R", "q1,y,R","q1,z,R","q4,x,L"  },
-                                                    { "q2,a,R", "q2,b,R","q2,c,R", "q2,x,R", "q2,y,R","q2,z,R","q4,y,L" },
-                                                    { "q3,a,R", "q3,b,R","q3,c,R", "q3,x,R", "q3,y,R","q3,z,R","q4,z,L"},
-                                                    {"q5,a,L", "q5,b,L","q5,c,L", "q4,x,L", "q4,y,L","q4,z,L","q6,,R"},
-                                                    { "q5,a,L", "q5,b,L","q5,c,L","q0,x,R", "q0,y,R","q0,z,R", "q6,,R"},
-                                                    { "", "","","q6,a,R", "q6,b,R","q6,c,R", "q7,,L"},
-                                                    { "", "","", "","", "",""}},
-                                                     new string[] { "a", "b", "c" }, new string[] { "a,0", "b,1", "c,2", "x,3", "y,4", "z,5", ",6" }, "q0", new string[] { "q7" });
+                                                    { "q3,x,R", "q2,+,R","q2,=,R", "q2,x,L", "q4,x,L" },
+                                                    { "q3,|,R", "q3,+,R","q3,=,R","q3,x,R","q4,x,L" },
+                                                    { "q5,|,L", "q4,+,L","q4,=,L", "q4,x,L","q6,,R" },
+                                                    { "q5,|,L", "q5,+,L","", "q2,x,R","q6,,L" },
+                                                    { "", "q6,+,R","q6,=,R", "q6,|,R","q7,,R" },
 
+                                                    //{ "q2,a,R", "q2,b,R","q2,c,R", "q2,x,R", "q2,y,R","q2,z,R","q4,y,L" },
+                                                    //{ "q3,a,R", "q3,b,R","q3,c,R", "q3,x,R", "q3,y,R","q3,z,R","q4,z,L"},
+                                                    //{"q5,a,L", "q5,b,L","q5,c,L", "q4,x,L", "q4,y,L","q4,z,L","q6,,R"},
+                                                    //{ "q5,a,L", "q5,b,L","q5,c,L","q0,x,R", "q0,y,R","q0,z,R", "q6,,R"},
+                                                    //{ "", "","","q6,a,R", "q6,b,R","q6,c,R", "q7,,L"},
+                                                    { "", "","", "",""}},
+                                                     new string[] { "|", "+" }, new string[] { "|,0", "+,1", "=,2", "x,3",",4" }, "q0", new string[] { "q7" });
 
+                InitializeGridtraciones();
             }
             else if (numeromaquina == 3)
             {
+                maquina = new Maquina(new string[,] {{ "q0,|,R", "q0,+,R","", "", "q1,=,L" },
+                                                    { "q1,|,L", "q1,+,L","q1,=,L", "", "q2,,R" },
+                                                    { "q3,x,R", "q5,+,R","q2,=,R", "q2,x,R", "q8,,L" },
+                                                    { "q3,|,R", "q3,+,R","q3,=,R","q3,x,R","q4,x,L" },
+                                                    { "q4,|,L", "q4,+,L","q4,=,L", "q4,x,L","q2,,R" },
+                                                    { "q6,x,R", "q6,+,R","q8,=,L", "q5,x,R","q6,,L" },
+                                                    { "q6,|,R", "q6,+,R","q6,=,R", "q6,x,R","q7,,L" },
+                                                    { "q11,|,R", "q11,+,R","q7,=,R","q4,,L","q7,+,L" },
+                                                    { "q8,|,L", "q8,+,L","q8,=,L", "q8,x,L","q9,,R" },
+                                                    { "q9,|,R", "q9,+,R","q9,=,R", "q9,|,R","q10,,R" },
+                                                    { "", "","", "",""},
+                                                    //{ "q2,a,R", "q2,b,R","q2,c,R", "q2,x,R", "q2,y,R","q2,z,R","q4,y,L" },
+                                                    //{ "q3,a,R", "q3,b,R","q3,c,R", "q3,x,R", "q3,y,R","q3,z,R","q4,z,L"},
+                                                    //{"q5,a,L", "q5,b,L","q5,c,L", "q4,x,L", "q4,y,L","q4,z,L","q6,,R"},
+                                                    //{ "q5,a,L", "q5,b,L","q5,c,L","q0,x,R", "q0,y,R","q0,z,R", "q6,,R"},
+                                                    //{ "", "","","q6,a,R", "q6,b,R","q6,c,R", "q7,,L"},
+                                                    { "", "","", "","q4,|,L"}},
+                                                     new string[] { "|", "+" }, new string[] { "|,0", "+,1", "=,2", "x,3", ",4" }, "q0", new string[] { "q10" });
 
+                InitializeGridtraciones();
             }
         }
     }

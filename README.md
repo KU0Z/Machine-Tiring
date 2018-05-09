@@ -18,6 +18,7 @@ Maquinas de turing:
 4. Luego podra escoger entre realizar todas las transiciones en Iniciar o realizar una por una con boton paso
 5. Ademas cuenta con un control de Velocidad para las transición del cabezal de la maquina 
 6.  Para ralizar otra prueba puede cambiar de maquina o bien solo cambiar la entrada seguido se presionar nuevamente en el boton cargar
+
 ![enter image description here](https://lh3.googleusercontent.com/xaUE3Q1PTTUw6biL8jV5r7nFe49eVO0owGDmObQSmGrR6-JNoJI5-OnkCcKt6D0c5SDYMSY2ETsU)
 Los simbolos de entrada de cada maquina son:
 1.  Palíndromo: Reconoce un patrón de a, b o c’s
